@@ -9,12 +9,12 @@ class Movie
     public string $cover;
     public Category $category;
 
-    public function __construct($title,)
+    public function __construct($title, $price, $category, $cover)
     {
         $this->title = $title;
-        // $this->year = $price;
-        // $this->category = $category;
-        // $this->cover = $cover;
+        $this->year = $price;
+        $this->category = $category;
+        $this->cover = $cover;
     }
 
     public function getTitle()
@@ -25,5 +25,3 @@ class Movie
 
 }
 
-$movie = new Movie('Avengers');
-echo $movie->title;
