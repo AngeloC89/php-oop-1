@@ -4,19 +4,24 @@ include __DIR__ . "/Views/header.php";
 include __DIR__ . "/Models/Movie.php";
 include __DIR__ . "/Models/Book.php";
 
-$action = new Category('Action');
-$openSource = new Category('Open Source');
-$internet = new Category('Internet');
 
-$movies = [
-    new Movie("Babylon", 'en', 19.99, $action, "https://image.tmdb.org/t/p/w342/kt9nqD0uOar8IVE9191HXhWOXKI.jpg"),
-    new Movie("Miraculous", 'en', 19.99, $action, "https://image.tmdb.org/t/p/w342/A46SghdyD9y7qQUxB5zOslospJ7.jpg"),
-];
+    
 
-$books = [
-    new Book("Unlocking Android", 416, 30.99, $openSource, "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ableson.jpg"),
-    new Book("Zend Framework", 432, 27.49, $internet, "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/allmon.jpg"),
-];
+
+$movies = Movie::getMovies();
+//var_dump($movies);
+$books = Book::getBooks();
+// var_dump($books);
+
+// $movies = [
+//     new Movie("Babylon", 'en', 19.99, $action, "https://image.tmdb.org/t/p/w342/kt9nqD0uOar8IVE9191HXhWOXKI.jpg"),
+//     new Movie("Miraculous", 'en', 19.99, $action, "https://image.tmdb.org/t/p/w342/A46SghdyD9y7qQUxB5zOslospJ7.jpg"),
+// ];
+
+// $books = [
+//     new Book("Unlocking Android", 416, 30.99, $openSource, "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ableson.jpg"),
+//     new Book("Zend Framework", 432, 27.49, $internet, "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/allmon.jpg"),
+// ];
 
 
 
@@ -35,8 +40,8 @@ $books = [
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"></h5>
-                        <h3 class="card-text"><?= $movie->title ?></h3>
-                        <p class="card-text"> <?= $movie->category->name ?></p>
+                        <h3 class="card-text text-truncate "><?= $movie->title ?></h3>
+                        <p class="card-text"> <?= $movie->category ?></p>
                         <p class="card-text">€ <?= $movie->price ?>.</p>
 
                     </div>
@@ -58,8 +63,8 @@ $books = [
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"></h5>
-                        <h3 class="card-text"><?= $book->title ?></h3>
-                        <p class="card-text"> <?= $book->category->name ?></p>
+                        <h3 class="card-text text-truncate "><?= $book->title ?></h3>
+                        <p class="card-text"> <?= $book->category ?></p>
                         <p class="card-text">Pages <?= $book->numPages ?></p>
                         <p class="card-text">€ <?= $book->price ?></p>
 

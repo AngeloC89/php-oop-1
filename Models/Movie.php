@@ -10,11 +10,15 @@ class Movie extends Product
         $this->language = $language;
         parent::__construct($title, $price, $category, $cover);
     }
-    public function getTitle()
-    {
-        echo $this->title;
+   
+    public static function getMovies() {
+        $data = file_get_contents("Models/movies_db.json", true);
+        $arrayData = json_decode($data, true); 
+        foreach ($arrayData as $movie) {
+            $movies[] = new Movie($movie['title'], $movie['language'], $movie['price'], $movie['category'], $movie['cover']);
+        }
+        return $movies;
     }
-
 
 }
 

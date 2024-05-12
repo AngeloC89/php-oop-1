@@ -1,10 +1,10 @@
 <?php
-include_once __DIR__ . "/Category.php";
+
 class Product
 {
     public $title;
     public $price;
-    public Category $category;
+    public string $category;
     public $cover;
 
 
@@ -14,4 +14,6 @@ class Product
         $this->category = $category;
         $this->cover = $cover;
     }
-}
+
+  
+}  
