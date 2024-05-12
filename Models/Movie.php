@@ -2,17 +2,19 @@
 
 include __DIR__ ."/Category.php";
 
+
 class Movie
 {
     public string $title;
     public float $price;
     public string $cover;
     public Category $category;
+    
 
     public function __construct($title, $price, $category, $cover)
     {
         $this->title = $title;
-        $this->year = $price;
+        $this->price = $price;
         $this->category = $category;
         $this->cover = $cover;
     }
