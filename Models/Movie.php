@@ -1,27 +1,18 @@
 <?php
 
-include __DIR__ ."/Category.php";
-
-
-class Movie
+include_once __DIR__ . "/Product.php";
+class Movie extends Product
 {
-    public string $title;
-    public float $price;
-    public string $cover;
-    public Category $category;
-    
 
-    public function __construct($title, $price, $category, $cover)
+    public $language;
+    public function __construct($title, $language, $price, $category, $cover)
     {
-        $this->title = $title;
-        $this->price = $price;
-        $this->category = $category;
-        $this->cover = $cover;
+        $this->language = $language;
+        parent::__construct($title, $price, $category, $cover);
     }
-
     public function getTitle()
     {
-        return $this->title;
+        echo $this->title;
     }
 
 
